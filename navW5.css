@@ -1,0 +1,15 @@
+nav{
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items:baseline;
+background-color: #CC9DB8;
+}
+
+.container{
+    height:200px;
+    width: 200px;
+    display: none;
+}
+
