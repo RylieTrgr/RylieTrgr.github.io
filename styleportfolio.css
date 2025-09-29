@@ -1,0 +1,89 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+min-height: 100vh;
+display: grid;
+grid-template-columns: 300px 1fr;
+grid-template-rows: auto 1fr auto;
+grid-template-areas: 
+"navbar navbar"
+"sidebar main"
+"sidebar footer";
+
+h1{
+    font-family:gotham;
+}
+
+p{
+    font-family:gotham-light;
+}
+
+}
+
+nav{
+    font-family:gotham;
+    height: 2rem;
+    top: 0;
+    position: sticky;
+    grid-area: navbar;
+    background-color: #622E4C;
+    color: white;
+    padding: 1em;
+}
+
+aside{
+    font-family: gotham-bold;
+    font-size: large;
+    height: calc(100vh - 4rem);
+    top: 4rem;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #CC9DB8;
+    color: white;
+    text-align: center;
+
+}
+
+main{
+    grid-area: main;
+    padding: 1em;
+    background-color: #f2e3fb;
+}
+
+                table{
+                    font-family: gotham, light;
+                     border-collapse: collapse;
+                    width: 100%;
+}
+                td{
+                border: 3px solid #422a4f;
+                text-align: left;
+                padding: 8px;
+                }
+                
+                th{
+                border: 3px solid #422a4f;
+                font-size: larger;
+                text-align: center;
+                padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                background-color: #d3bfde;
+}
+                
+                
+footer{
+    font-size: small;
+    grid-area: footer;
+    background-color: #806273;
+    color: white;
+    padding: 2em
+
+}
