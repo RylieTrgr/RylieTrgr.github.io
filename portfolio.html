@@ -4,26 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>portfolioindex</title>
-  <link rel="stylesheet" href="styleportfolio.css">
-  <style>
-    .light {
-      background-color: aqua;
-    }
-
-    .dark {
-      background-color: blueviolet;
-    }
-  </style>
-  <script type="text/javascript" src="scriptportfolio.js" defer></script>
+  <link id="theme" rel="stylesheet" 
+        type="text/css" href="styleLight.css">
+  <script type="text/javascript" src="scriptTable.js" defer></script>
 
 </head>
 <body>
-  <nav>
+  <nav> <button onclick="toggleSidebar()"> Toggle Mobile Sidebar </button>
     <h1>
       RYLIE'S RAD REPO
     </h1>
+    <style>
+      .btn-theme{
+        text-align: right;
+      }
+      </style>
+    <div class="btn-theme">
+      <button onclick="toggleTheme()">Switch Theme</button>
+    </div>
+    <script>
+        function toggleTheme() {
+            // Select the <link> element
+            let theme = document.getElementById('theme');
+
+            // Toggle between light.css and dark.css
+            if (theme.getAttribute('href') == 'styleLight.css') {
+                theme.setAttribute('href', 'styleDark.css');
+            } else {
+                theme.setAttribute('href', 'styleLight.css');
+            }
+            localStorage.setItem('userTheme', theme);
+            document.body.className = theme;
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('userTheme') || 'light';
+            document.body.className = savedTheme;
+        });
+        
+    </script>
   </nav>
-  <aside>
+  <aside id="sidebar">
     <h2></h2>
     <br>
     <br>
@@ -40,35 +62,7 @@
   <main>
     <h1>Hi! I'm Rylie Trager!</h1>
     <br>
-      <button id="theme" type="button" >theme</button>
-      <script>
-        let btn = document.querySelector('#theme') .addEventListener('click', theme);
-
-        function theme() {
-          //console.log("theme works");
-          setTheme("light");
-        }
-
-        // Save user's theme choice
-        function setTheme(theme) {
-          let inTheme = theme;
-          if (inTheme == 'dark') {
-            theme =  'light';
-          }
-          else{
-            theme = 'dark';
-          }
-            localStorage.setItem('userTheme', theme);
-            document.body.className = theme;
-        }
-
-        // Load saved theme on page load
-        window.addEventListener('load', function() {
-            const savedTheme = localStorage.getItem('userTheme') || 'light';
-            document.body.className = savedTheme;
-        });
-
-      </script>
+      
   </main>
   <footer>
 <h2> CONTACT </h2>   

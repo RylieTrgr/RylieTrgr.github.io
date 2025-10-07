@@ -27,20 +27,13 @@
         // Save user's theme choice
         function setTheme(theme) {
           let inTheme = theme;
-          if (theme == 'dark') {
+          if (inTheme == 'dark') {
             theme =  'light';
           }
-          else{
+          else (inTheme == 'light'); {
             theme = 'dark';
           }
-
-          if (theme == 'light') {
-            theme =  'dark';
-          }
-          else{
-            theme = 'light';
-
-          }
+          
             localStorage.setItem('userTheme', theme);
             document.body.className = theme;
         }

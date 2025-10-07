@@ -5,6 +5,23 @@
     padding: 0;
 }
 
+a:link {
+  color: #622e5b;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #5c4049;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(252, 225, 225);
+  background-color: transparent;
+  text-decoration: underline;
+
+}
+
 body{
 min-height: 100vh;
 display: grid;
@@ -32,7 +49,7 @@ nav{
     position: sticky;
     grid-area: navbar;
     background-color: #622E4C;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 1em;
 }
 
@@ -54,9 +71,36 @@ main{
     grid-area: main;
     padding: 1em;
     background-color: #f2e3fb;
+    color: rgb(0, 0, 0);
+}               
+                
+footer{
+    font-size: small;
+    grid-area: footer;
+    background-color: #806273;
+    color: white;
+    padding: 2em
+
 }
 
-    .table-sortable th {
+@media(max-width: 800px){
+    body{
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        position: fixed;
+        width: 300px;
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+
+}
+
+
+.table-sortable th {
         cursor: pointer;
     }
 
@@ -75,7 +119,7 @@ main{
 
     .table-sortable .th-sort-asc,
     .table-sortable .th-sort-desc {
-            background: rgba(0,0,0,0.1);
+            background: rgba(159, 84, 119, 0.722);
     }
     
 
@@ -92,23 +136,17 @@ main{
                 
                 th{
                 border: 3px solid #422a4f;
+                background-color: #ffddf1;
                 font-size: larger;
                 text-align: center;
                 padding: 8px;
                 cursor: pointer;
                 }
 
+                tr:nth-child(odd) {
+                background-color: #bea0cb;
+                }
                 tr:nth-child(even) {
-                background-color: #d3bfde;
+                background-color: #e0cbeb;
                 
-}
-                
-                
-footer{
-    font-size: small;
-    grid-area: footer;
-    background-color: #806273;
-    color: white;
-    padding: 2em
-
 }

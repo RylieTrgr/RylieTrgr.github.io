@@ -3,27 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>portfolioabout</title>
+  <title>portfolioindex</title>
+  <link id="theme" rel="stylesheet" 
+        type="text/css" href="styleLight.css">
+  <script type="text/javascript" src="scriptTable.js" defer></script>
 
 </head>
+<body>
+  <nav>
+    <h1>
+      RYLIE'S RAD REPO
+    </h1>
+    <style>
+      .btn-theme{
+        text-align: right;
+      }
+      </style>
+    <div class="btn-theme">
+      <button onclick="toggleTheme()">Switch Theme</button>
+    </div>
+    <script>
+        function toggleTheme() {
+            // Select the <link> element
+            let theme = document.getElementById('theme');
 
-<body style="background-color: #FFC4E6;">
+            // Toggle between light.css and dark.css
+            if (theme.getAttribute('href') == 'styleLight.css') {
+                theme.setAttribute('href', 'styleDark.css');
+            } else {
+                theme.setAttribute('href', 'styleLight.css');
+            }
+            localStorage.setItem('userTheme', theme);
+            document.body.className = theme;
+        }
 
-<header style="font-family:gotham">  <h1> RYLIE </h1>
-<h3 style="color:#622E4C;"> Hi! I'm Rylie Trager.</h3>
-
-<nav>
-<a href="/portfolio.html">HOME</a> |
-<a href="/about.html">ABOUT</a> |
-<a href="/interests.html">INTERESTS</a> |
-<a href="/goals.html">GOALS</a> |
-</nav>
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('userTheme') || 'light';
+            document.body.className = savedTheme;
+        });
+        
+    </script>
+  </nav>
+  <aside>
+    <h2></h2>
+    <br>
+    <br>
+    <li><a href="/portfolio.html">HOME</a></li>
+    <br>
+    <li><a href="about.html">ABOUT</a></li>
+    <br>
+    <li><a href="interests.html">INTERESTS</a></li>
+    <br>
+    <li><a href="goals.html">GOALS</a></li>
+    <br>
+     <li><a href="resources.html">ART RESOURCES</a></li>
+  </aside>
+  <main>
+    
 
 </header>
 
-<article style="font-family:gotham"> 
-<h1 style="font-family:gotham"> ABOUT </h1>   
-<h4 style="color:#622E4C;"> I like making things. I'm studying Strategic Communications and Creative Technology/Design at CU Boulder. I'm trained in Media Design and various Audiovisual editing softwares. Below is some of my work. I hope you enjoy!</h3>
+<article> 
+<h1> ABOUT </h1>  
+<br> 
+<h4> I like making things. I'm studying Strategic Communications and Creative Technology/Design at CU Boulder. I'm trained in Media Design and various Audiovisual editing softwares. Below is some of my work. I hope you enjoy!</h3>
   <img src="img/LostCornerFINAL5.PNG" alt="rylie heading" width="200" height="200" class="center">
   <img src="img/At_First_Light 2.JPG" alt="rylie heading" width="200" height="150" class="center">
   <img src="img/celesFINAL4.PNG" alt="rylie heading" width="260" height="150" class="center">
@@ -33,13 +77,9 @@
 </article>
 
 
-<footer style="font-family:gotham">
-<br>
-<br>
-<br>
+<footer>
 <h2> CONTACT </h2>   
-<h3 style="color:#622E4C;"> 847-284-1101 <b3> <br>
-rylie.trgr@gmail.com</h3>
-</footer>
+<h3> | 847-284-1101 <b3> | rylie.trgr@gmail.com |</h3>
+  </footer>
 
   </body> 

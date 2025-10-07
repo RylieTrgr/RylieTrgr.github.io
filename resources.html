@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>portfolioindex</title>
-  <link rel="stylesheet" href="styleportfolio.css">
-  <script type="text/javascript" src="scriptportfolio.js" defer></script>
+  <link id="theme" rel="stylesheet" 
+        type="text/css" href="styleLight.css">
+  <script type="text/javascript" src="scriptTable.js" defer></script>
 
 </head>
 <body>
@@ -13,6 +14,36 @@
     <h1>
       RYLIE'S RAD REPO
     </h1>
+    <style>
+      .btn-theme{
+        text-align: right;
+      }
+      </style>
+    <div class="btn-theme">
+      <button onclick="toggleTheme()">Switch Theme</button>
+    </div>
+    <script>
+        function toggleTheme() {
+            // Select the <link> element
+            let theme = document.getElementById('theme');
+
+            // Toggle between light.css and dark.css
+            if (theme.getAttribute('href') == 'styleLight.css') {
+                theme.setAttribute('href', 'styleDark.css');
+            } else {
+                theme.setAttribute('href', 'styleLight.css');
+            }
+            localStorage.setItem('userTheme', theme);
+            document.body.className = theme;
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('userTheme') || 'light';
+            document.body.className = savedTheme;
+        });
+        
+    </script>
   </nav>
   <aside>
     <h2></h2>
@@ -33,6 +64,7 @@
     <h1>ART RESOURCES</h1>
     <br>
      <br>
+
 <table class="table table-sortable">
     <thead>
         <tr>

@@ -1,0 +1,131 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a:link {
+  color: rgb(247, 157, 213);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(255, 116, 160);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #482739;
+  background-color: transparent;
+  text-decoration: underline;
+
+}
+
+body{
+min-height: 100vh;
+display: grid;
+grid-template-columns: 300px 1fr;
+grid-template-rows: auto 1fr auto;
+grid-template-areas: 
+"navbar navbar"
+"sidebar main"
+"sidebar footer";
+
+h1{
+    font-family:gotham;
+}
+
+p{
+    font-family:gotham-light;
+}
+
+}
+
+nav{
+    font-family:gotham;
+    height: 2rem;
+    top: 0;
+    position: sticky;
+    grid-area: navbar;
+    background-color: #d072a9;
+    color: rgb(0, 0, 0);
+    padding: 1em;
+}
+
+aside{
+    font-family: gotham-bold;
+    font-size: large;
+    height: calc(100vh - 4rem);
+    top: 4rem;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+    background-color: #755064;
+    color: rgb(154, 33, 33);
+    text-align: center;
+
+}
+
+main{
+    grid-area: main;
+    padding: 1em;
+    background-color: #32252d;
+    color: white;
+}
+                
+                
+footer{
+    font-size: small;
+    grid-area: footer;
+    background-color: #ab7092;
+    color: white;
+    padding: 2em
+
+}
+
+.table-sortable th {
+        cursor: pointer;
+    }
+
+    .table-sortable .th-sort-asc::after {
+        content: "\25b4";
+    }
+    
+    .table-sortable .th-sort-desc::after {
+        content: "\25be";
+    }
+
+    .table-sortable .th-sort-asc::after,
+    .table-sortable .th-sort-desc::after {
+        margin-left: 5px;
+    }
+
+    .table-sortable .th-sort-asc,
+    .table-sortable .th-sort-desc {
+            background: rgba(0,0,0,0.1);
+    }
+    
+
+                table{
+                    font-family: gotham, book;
+                     border-collapse: collapse;
+                    width: 100%;
+}
+                td{
+                border: 3px solid #9c70b4;
+                text-align: left;
+                padding: 8px;
+                }
+                
+                th{
+                border: 3px solid #9c70b4;
+                font-size: larger;
+                text-align: center;
+                padding: 8px;
+                cursor: pointer;
+                }
+
+                tr:nth-child(even) {
+                background-color: #4c4351;
+                
+}
