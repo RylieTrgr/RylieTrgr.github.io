@@ -102,7 +102,7 @@ footer{
 
     .table-sortable .th-sort-asc,
     .table-sortable .th-sort-desc {
-            background: rgba(0,0,0,0.1);
+            background: rgba(176, 69, 120, 0.578);
     }
     
 
@@ -119,12 +119,16 @@ footer{
                 
                 th{
                 border: 3px solid #9c70b4;
+                background-color: #583353;
                 font-size: larger;
                 text-align: center;
                 padding: 8px;
                 cursor: pointer;
                 }
 
+                tr:nth-child(odd) {
+                background-color: #3a313f;
+                }
                 tr:nth-child(even) {
                 background-color: #4c4351;
                 
