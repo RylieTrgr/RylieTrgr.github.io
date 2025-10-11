@@ -3,39 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>portfolioabout</title>
+  <title>portfolioindex</title>
+  <link id="theme" rel="stylesheet" 
+        type="text/css" href="styleLight.css">
+  <script type="text/javascript" src="scriptTable.js" defer></script>
 
 </head>
 
-<body style="background-color: #FFC4E6;">
+ <nav> 
+    <button onclick="toggleSidebar()" class="nav-toggle" aria-label="Toggle navigation menu">
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+  </button>
+    
+    <h1>
+      RYLIE'S RAD REPO
+    </h1>
+    <style>
+      .btn-theme{
+        text-align: right;
+      }
+      </style>
+    <div class="btn-theme">
+      <button onclick="toggleTheme()">Switch Theme</button>
+    </div>
+    
+  </nav>
+  <aside id="sidebar">
+    <h2></h2>
+    <br>
+    <br>
+    <li><a href="/portfolio.html">HOME</a></li>
+    <br>
+    <li><a href="about.html">ABOUT</a></li>
+    <br>
+    <li><a href="interests.html">INTERESTS</a></li>
+    <br>
+    <li><a href="goals.html">GOALS</a></li>
+    <br>
+     <li><a href="resources.html">ART RESOURCES</a></li>
+  </aside>
 
-<header style="font-family:gotham">  <h1> RYLIE </h1>
-<h3 style="color:#622E4C;"> Hi! I'm Rylie Trager.</h3>
-
-<nav>
-<a href="/portfolio.html">HOME</a> |
-<a href="/about.html">ABOUT</a> |
-<a href="/interests.html">INTERESTS</a> |
-<a href="/goals.html">GOALS</a> |
-</nav>
-
-</header>
-
-<article style="font-family:gotham"> 
-<h1 style="font-family:gotham"> GOALS </h1>   
-<h4 style="color:#622E4C;"> -Continue to get out of bed in the morning. <br>
-  -Learn advanced anatomy and lighting.<br>
-  -Find a workflow that suits me.<br>
-  -Adopt a cat probably.<br> </h3>
-</article>
-<footer style="font-family:gotham">
-<br>
-<br>
-<br>
+<main> 
+  <br>
+<h1> GOALS </h1>   
+<p> 
+  <br>
+  -Continue to get out of bed in the morning. </li> <br> <br>
+  -Learn advanced anatomy and lighting.<br><br>
+  -Find a workflow that suits me.<br><br>
+  -Adopt a cat probably.<br> <br>
+</p>
+</main>
+<footer>
 <h2> CONTACT </h2>   
-<h3 style="color:#622E4C;"> 847-284-1101 <b3> <br>
-rylie.trgr@gmail.com</h3>
-</footer>
+<h3> | 847-284-1101 <b3> | rylie.trgr@gmail.com |</h3>
+  </footer>
 
-</h3>
-  </body> 
+  <script>
+        function toggleTheme() {
+            // Select the <link> element
+            let theme = document.getElementById('theme');
+
+            // Toggle between light.css and dark.css
+            if (theme.getAttribute('href') == 'styleLight.css') {
+                theme.setAttribute('href', 'styleDark.css');
+                localStorage.setItem('userTheme', 'styleDark.css');
+                console.log(localStorage.getItem('userTheme'));
+            } else {
+                theme.setAttribute('href', 'styleLight.css');
+                  localStorage.setItem('userTheme', 'styleLight.css');
+            }
+            
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+          let theme = document.getElementById('theme');
+            if (localStorage.getItem('userTheme') !== null) {
+            const savedTheme = localStorage.getItem('userTheme');
+            theme.setAttribute('href', savedTheme);
+            console.log(savedTheme);
+            console.log(localStorage.getItem('userTheme'));
+            }
+             
+        });
+        
+    </script>
+</body>
+</html>

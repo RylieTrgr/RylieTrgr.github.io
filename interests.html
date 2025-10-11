@@ -3,37 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>portfolioabout</title>
+  <title>portfolioindex</title>
+  <link id="theme" rel="stylesheet" 
+        type="text/css" href="styleLight.css">
+  <script type="text/javascript" src="scriptTable.js" defer></script>
 
 </head>
 
-<body style="background-color: #FFC4E6;">
+<body>
+  <nav> 
+    <button onclick="toggleSidebar()" class="nav-toggle" aria-label="Toggle navigation menu">
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+  </button>
+    
+    <h1>
+      RYLIE'S RAD REPO
+    </h1>
+    <style>
+      .btn-theme{
+        text-align: right;
+      }
+      </style>
+    <div class="btn-theme">
+      <button onclick="toggleTheme()">Switch Theme</button>
+    </div>
+    
+  </nav>
+  <aside id="sidebar">
+    <h2></h2>
+    <br>
+    <br>
+    <li><a href="/portfolio.html">HOME</a></li>
+    <br>
+    <li><a href="about.html">ABOUT</a></li>
+    <br>
+    <li><a href="interests.html">INTERESTS</a></li>
+    <br>
+    <li><a href="goals.html">GOALS</a></li>
+    <br>
+     <li><a href="resources.html">ART RESOURCES</a></li>
+  </aside>
 
-<header style="font-family:gotham">  <h1 style="font-family:gotham"> RYLIE </h1>
-<h3 style="color:#622E4C;"> Hi! I'm Rylie Trager.</h3>
-
-<nav>
-<a href="/portfolio.html">HOME</a> |
-<a href="/about.html">ABOUT</a> |
-<a href="/interests.html">INTERESTS</a> |
-<a href="/goals.html">GOALS</a> |
-</nav>
-
-</header>
-
-<article style="font-family:gotham">
-<h1 style="font-family:gotham"> INTERESTS </h1>   
-<h4 style="color:#622E4C;"> When it comes to design, I love seeing well thought-out color and flair, like that of pop-art and art-deco. I've been teaching myself to draw by hand more, so I love analyzing things like gesture and form in the context of design, combining two worlds that I love exploring. More than anything, my creative works are fueled by my love of discovery. Whether it's delving into skills like color theory or practicing challenges like perspective, I derive fulfillment from witnessing my own growth as an artist and person. There's a certain joy to simply pouring love into creating something, especially upon seeing that you're capable of more of it than you think.</h3>
-</article>
-
-
-<footer style="font-family:gotham">
+<main>
+  <br>
+<h1> INTERESTS </h1>   
 <br>
-<br>
-<br>
-<h2 style="font-family:gotham"> CONTACT </h2>   
-<h3 style="color:#622E4C;"> 847-284-1101 <b3> <br>
-rylie.trgr@gmail.com</h3>
-</footer>
+<p> When it comes to design, I love seeing well thought-out color and flair, like that of pop-art and art-deco. I've been teaching myself to draw by hand more, so I love analyzing things like gesture and form in the context of design, combining two worlds that I love exploring. More than anything, my creative works are fueled by my love of discovery. Whether it's delving into skills like color theory or practicing challenges like perspective, I derive fulfillment from witnessing my own growth as an artist and person. There's a certain joy to simply pouring love into creating something, especially upon seeing that you're capable of more of it than you think.</h3>
+</main>
 
-</body> 
+
+<footer>
+<h2> CONTACT </h2>   
+<h3> | 847-284-1101 <b3> | rylie.trgr@gmail.com |</h3>
+  </footer>
+
+  <script>
+        function toggleTheme() {
+            // Select the <link> element
+            let theme = document.getElementById('theme');
+
+            // Toggle between light.css and dark.css
+            if (theme.getAttribute('href') == 'styleLight.css') {
+                theme.setAttribute('href', 'styleDark.css');
+                localStorage.setItem('userTheme', 'styleDark.css');
+                console.log(localStorage.getItem('userTheme'));
+            } else {
+                theme.setAttribute('href', 'styleLight.css');
+                  localStorage.setItem('userTheme', 'styleLight.css');
+            }
+            
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+          let theme = document.getElementById('theme');
+            if (localStorage.getItem('userTheme') !== null) {
+            const savedTheme = localStorage.getItem('userTheme');
+            theme.setAttribute('href', savedTheme);
+            console.log(savedTheme);
+            console.log(localStorage.getItem('userTheme'));
+            }
+             
+        });
+        
+    </script>
+</body>
+</html>

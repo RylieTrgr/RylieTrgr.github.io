@@ -5,21 +5,14 @@
     padding: 0;
 }
 a:link {
-  color: rgb(247, 157, 213);
+  color: rgb(255, 147, 214);
   background-color: transparent;
   text-decoration: none;
 }
-a:visited {
-  color: rgb(255, 116, 160);
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: #482739;
-  background-color: transparent;
-  text-decoration: underline;
 
-}
+
+
+
 
 body{
 min-height: 100vh;
@@ -42,17 +35,21 @@ p{
 }
 
 nav{
+    z-index: 1;
+    display: flex;
     font-family:gotham;
-    height: 2rem;
+    height: 4rem;
     top: 0;
     position: sticky;
     grid-area: navbar;
-    background-color: #d072a9;
-    color: rgb(0, 0, 0);
+    background-color: #622E4C;
+    color: rgb(255, 255, 255);
     padding: 1em;
 }
 
+
 aside{
+    z-index: 0;
     font-family: gotham-bold;
     font-size: large;
     height: calc(100vh - 4rem);
@@ -60,8 +57,8 @@ aside{
     position: sticky;
     align-self: start;
     grid-area: sidebar;
-    background-color: #755064;
-    color: rgb(154, 33, 33);
+    background-color: #CC9DB8;
+    color: white;
     text-align: center;
 
 }
@@ -80,6 +77,47 @@ footer{
     background-color: #ab7092;
     color: white;
     padding: 2em
+
+}
+
+.nav-toggle {
+    display: none;
+
+}
+
+@media(max-width: 800px){
+    body{
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        position: fixed;
+        width: 300px;
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+
+    .nav-toggle{
+    display: flex;
+    background-color: #f6e1ff;
+    flex-direction: column;
+    padding: 5px;
+    max-height: 90%;
+    align-content: center;
+    justify-content: center;
+    border-width: 10px;
+    border-color: #422a4f;
+}
+
+.hamburger {
+    background-color: #f1a1a1;
+    margin: 3px;
+    height: 6px;
+    width: 50px;
+    
+}
 
 }
 
@@ -133,3 +171,16 @@ footer{
                 background-color: #4c4351;
                 
 }
+
+/* Makes table links hover color different*/
+
+.table a:visited {
+   color: #d55099;
+}
+
+
+.table a:hover {
+color: #ca0f50;
+
+}
+/*Make default have higher contrast

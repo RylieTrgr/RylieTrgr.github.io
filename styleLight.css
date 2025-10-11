@@ -6,21 +6,11 @@
 }
 
 a:link {
-  color: #622e5b;
+  color: rgb(88, 23, 91);
   background-color: transparent;
   text-decoration: none;
 }
-a:visited {
-  color: #5c4049;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: rgb(252, 225, 225);
-  background-color: transparent;
-  text-decoration: underline;
 
-}
 
 body{
 min-height: 100vh;
@@ -43,8 +33,10 @@ p{
 }
 
 nav{
+    z-index: 1;
+    display: flex;
     font-family:gotham;
-    height: 2rem;
+    height: 4rem;
     top: 0;
     position: sticky;
     grid-area: navbar;
@@ -54,6 +46,7 @@ nav{
 }
 
 aside{
+    z-index: 0;
     font-family: gotham-bold;
     font-size: large;
     height: calc(100vh - 4rem);
@@ -83,6 +76,11 @@ footer{
 
 }
 
+.nav-toggle {
+    display: none;
+
+}
+
 @media(max-width: 800px){
     body{
         grid-template-columns: 1fr;
@@ -96,6 +94,26 @@ footer{
     .show{
         display: block;
     }
+
+    .nav-toggle{
+    display: flex;
+    background-color: #f6e1ff;
+    flex-direction: column;
+    padding: 5px;
+    max-height: 90%;
+    align-content: center;
+    justify-content: center;
+    border-width: 10px;
+    border-color: #422a4f;
+}
+
+.hamburger {
+    background-color: #f1a1a1;
+    margin: 3px;
+    height: 6px;
+    width: 50px;
+    
+}
 
 }
 
@@ -119,7 +137,7 @@ footer{
 
     .table-sortable .th-sort-asc,
     .table-sortable .th-sort-desc {
-            background: rgba(159, 84, 119, 0.722);
+            background: rgba(216, 149, 233, 0.722);
     }
     
 
@@ -136,7 +154,7 @@ footer{
                 
                 th{
                 border: 3px solid #422a4f;
-                background-color: #ffddf1;
+                background-color: #faddff;
                 font-size: larger;
                 text-align: center;
                 padding: 8px;
@@ -150,3 +168,22 @@ footer{
                 background-color: #e0cbeb;
                 
 }
+
+
+/* Makes table links hover color different*/
+.table a:visited {
+  color: rgb(54, 44, 148);
+  background-color: transparent;
+  text-decoration: underline;
+
+
+}
+
+
+.table a:hover {
+color: #ca0f79;
+
+}
+
+
+

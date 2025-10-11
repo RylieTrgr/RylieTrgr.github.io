@@ -11,6 +11,12 @@
 </head>
 <body>
   <nav>
+    <button onclick="toggleSidebar()" class="nav-toggle" aria-label="Toggle navigation menu">
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+  </button>
+    
     <h1>
       RYLIE'S RAD REPO
     </h1>
@@ -22,30 +28,9 @@
     <div class="btn-theme">
       <button onclick="toggleTheme()">Switch Theme</button>
     </div>
-    <script>
-        function toggleTheme() {
-            // Select the <link> element
-            let theme = document.getElementById('theme');
-
-            // Toggle between light.css and dark.css
-            if (theme.getAttribute('href') == 'styleLight.css') {
-                theme.setAttribute('href', 'styleDark.css');
-            } else {
-                theme.setAttribute('href', 'styleLight.css');
-            }
-            localStorage.setItem('userTheme', theme);
-            document.body.className = theme;
-        }
-
-        // Load saved theme on page load
-        window.addEventListener('load', function() {
-            const savedTheme = localStorage.getItem('userTheme') || 'light';
-            document.body.className = savedTheme;
-        });
-        
-    </script>
+    
   </nav>
-  <aside>
+  <aside id="sidebar">
     <h2></h2>
     <br>
     <br>
@@ -67,13 +52,16 @@
 <article> 
 <h1> ABOUT </h1>  
 <br> 
-<h4> I like making things. I'm studying Strategic Communications and Creative Technology/Design at CU Boulder. I'm trained in Media Design and various Audiovisual editing softwares. Below is some of my work. I hope you enjoy!</h3>
+<p> I like making things. I'm studying Strategic Communications and Creative Technology/Design at CU Boulder. I'm trained in Media Design and various Audiovisual editing softwares. Below is some of my work. I hope you enjoy!</h3>
+  <br>
+  <br>
+  <br>
   <img src="img/LostCornerFINAL5.PNG" alt="rylie heading" width="200" height="200" class="center">
   <img src="img/At_First_Light 2.JPG" alt="rylie heading" width="200" height="150" class="center">
   <img src="img/celesFINAL4.PNG" alt="rylie heading" width="260" height="150" class="center">
   <img src="img/A503707B-D844-4777-878B-F0F9BB7B4A7B.JPG" alt="rylie heading" width="200" height="150" class="center">
   <img src="img/ComicPopFINAL 02.PNG" alt="rylie heading" width="170" height="200" class="center">
-  <img src="img/zapplogo.PNG" alt="rylie heading" width="260" height="180" class="center"> <br>
+  <br>
 </article>
 
 
@@ -81,5 +69,36 @@
 <h2> CONTACT </h2>   
 <h3> | 847-284-1101 <b3> | rylie.trgr@gmail.com |</h3>
   </footer>
+
+  <script>
+        function toggleTheme() {
+            // Select the <link> element
+            let theme = document.getElementById('theme');
+
+            // Toggle between light.css and dark.css
+            if (theme.getAttribute('href') == 'styleLight.css') {
+                theme.setAttribute('href', 'styleDark.css');
+                localStorage.setItem('userTheme', 'styleDark.css');
+                console.log(localStorage.getItem('userTheme'));
+            } else {
+                theme.setAttribute('href', 'styleLight.css');
+                  localStorage.setItem('userTheme', 'styleLight.css');
+            }
+            
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+          let theme = document.getElementById('theme');
+            if (localStorage.getItem('userTheme') !== null) {
+            const savedTheme = localStorage.getItem('userTheme');
+            theme.setAttribute('href', savedTheme);
+            console.log(savedTheme);
+            console.log(localStorage.getItem('userTheme'));
+            }
+             
+        });
+        
+    </script>
 
   </body> 
