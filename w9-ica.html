@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .button {
+        
+        height: 200px;
+        width: 200px;
+        border: 5px rgb(82, 29, 64) solid;
+        font-family: avenir;
+        font-size: large;
+        background-color: #e8abe1;
+        cursor: pointer;
+        animation-name: button-pulse;
+        animation-duration: 2s;
+        animation-iteration-count:infinite;
+        position: relative;
+        
+
+        }
+
+        .button:hover {
+            background-color: #6f3f69;
+            font-family: avenir;
+            font-weight: 500;
+            font-size: 20px;
+            color: rgb(81, 19, 39);
+            border: 5px #912898 solid;
+            animation-play-state: paused;
+            
+        }
+
+        @keyframes button-pulse {
+            from {
+                background-color: #e8abe1;
+            }
+
+            12.5% {
+                background-color: #e65ad6;    
+            } 
+
+            25% {
+                background-color: #e8abe1;
+            }
+
+            37.5% {
+                background-color: #e65ad6; 
+            } 
+
+            50% {
+                background-color: #e8abe1;
+                
+            }
+
+            to {
+                background-color: #e8abe1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <button class="button"> click me you wont </button>
+
+    <script>
+
+
+    </script>
+    
+</body>
+</html>

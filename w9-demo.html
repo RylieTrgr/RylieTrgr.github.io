@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* .box {
+        height: 200px;
+        width: 200px;
+        border: 5px black solid;
+        background-color: red;
+        animation-name: moving-box;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        position: relative;
+
+        } */
+
+        .another-box {
+        height: 200px;
+        width: 200px;
+        border: 5px black solid;
+        background-color: rgb(67, 60, 208);
+        transition-property: width, height;
+        transition-duration: .3s;
+
+        }
+
+        .another-box:hover {
+            width: 500px;
+            height: 500px;
+
+        }
+
+        @keyframes moving-box {
+            from {
+                left: 0px;
+                top: 0px;
+            }
+
+
+            50% {
+                left: 500px;
+                top: 0px;
+                background-color: aqua;
+            }
+
+            75% {
+                left: 1000px;
+                top: 500px;
+            }
+
+            to {
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+    
+</div>
+
+<div class="another-box">
+
+
+</div>
+
+    <script>
+
+
+    </script>
+    
+</body>
+</html>
