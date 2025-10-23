@@ -1,7 +1,6 @@
 let triviaBtn = document.querySelector("#js-new-quote").addEventListener('click', newTrivia);
 
-let answerBtn = document.querySelector('js-tweet').
-addEventListener('click', newAnswer);
+let answerBtn = document.querySelector('#js-tweet').addEventListener('click', newAnswer);
 
 let current = {
     question: "",
@@ -31,8 +30,8 @@ async function newTrivia() {
         displayTrivia(json['question']);
         current.question = json["question"];
         current.answer = json["answer"];
-        console.log (current.question);
-        console.log (current.answer);
+        console.log(current.question);
+        console.log(current.answer);
     } catch (err) {
         console.log(err)
         alert('failed lmao');
@@ -43,10 +42,18 @@ async function newTrivia() {
 function displayTrivia(question) {
     const questionText = document.querySelector
     ('#js-quote-text');
+    const answerText = document.querySelector("#js-answer-text");
+    {"#js-answer-text"};
     questionText.textContent = question;
+    answerText.textContent = "";
 }
 
 function newAnswer() {
-console.log("Success == answer"); 
+//console.log("Success == answer"); 
+    const answerText = document.querySelector("#js-answer-text");
+    {"#js-answer-text"};
+    answerText.textContent = current.answer;
 
 }
+
+newTrivia();
