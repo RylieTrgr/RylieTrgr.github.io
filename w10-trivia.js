@@ -1,10 +1,13 @@
-let triviaBtn = document.querySelector("#js-new-quote").addEventListener('click', newPunchline);
+let setupBtn = document.querySelector("#js-new-quote").addEventListener('click', newSetup);
 
 let punchlineBtn = document.querySelector('#js-tweet').addEventListener('click', newPunchline);
+
+let typeBtn = document.querySelector('#js-type').addEventListener('click', newType);
 
 let current = {
     setup: "",
     punchline: "",
+    type: "",
 
 }
 
@@ -12,9 +15,9 @@ let current = {
 
     //console.log ("Success")}
 
-const endpoint = "https://official-joke-api.appspot.com/random_ten"
+const endpoint = "https://official-joke-api.appspot.com/random_joke"
 
-async function newPunchline() {
+async function newSetup() {
     //console.log ("Success")
 
     try {
@@ -30,8 +33,10 @@ async function newPunchline() {
         displaySetup(json['setup']);
         current.setup = json["setup"];
         current.punchline = json["punchline"];
+        current.type = json['type'];
         console.log(current.setup);
         console.log(current.punchline);
+        console.log(current.type);
     } catch (err) {
         console.log(err)
         alert('failed lmao');
@@ -46,6 +51,10 @@ function displaySetup(setup) {
     {"#js-answer-text"};
     setupText.textContent = setup;
     punchlineText.textContent = "";
+    const typeText = document.querySelector("#js-type-text");
+    {"#js-type-text"};
+    setupText.textContent = setup;
+    typeText.textContent = "";
 }
 
 function newPunchline() {
@@ -56,4 +65,14 @@ function newPunchline() {
 
 }
 
+
 newPunchline();
+
+function newType() {
+//console.log("Success == type"); 
+    const typeText = document.querySelector("#js-type-text");
+    {"#js-type-text"};
+    typeText.textContent = current.type;
+}
+
+newType();

@@ -10,18 +10,35 @@
 <body>
 
      <div class="app">
-        <header>Random Christmas Trivia</header>
+        <header>Joke Generator!</header>
         <section class="quotes">
           <div class="quote-text" id="js-quote-text"></div>
           <div class="quote-text" id="js-answer-text"></div>
+          <div class="type-text" id="js-type-text"></div>
         </section>
         <section class="controls" >
           <button type="button" id="js-new-quote" class="new-quote button">
-            Generate a new bit of trivia!
+            New Joke
           </button>
           <button type="button" id="js-tweet" class="twitter button">
-            Show me the answer!
+            Reveal Punchline
           </button>
+          <br>
+          <button type="button" id="js-type" class="type button">
+            Reveal type
+          </button>
+          <br>
+          <br>
+            <p>
+      1. The API I found generates a joke upon being requested. It contains the [setup], [punchline], and [type]. That last parameter is the extension I decided to impliment to the quote API of this assignment--assigning a category to whatever is pulled, in this case, the joke.
+  </p>
+  <br>
+  <br>
+  <p>NOTE: A LOT of the jokes this API uses fall under "general". It's just the way it seems to have been made, so it might take a few clicks to get one from the other categories. </p>
+  <br>
+  <br>
+  <p> 2. The API in my project would probably take the form of a mockup post generator, for the sake of simulating what an "explore" page would look like.</p>
+
           <!-- <a class="answer button" id="js-tweet" target="_blank" rel="noreferrer">Show me the answer!</a> -->
         </section>
       </div>
