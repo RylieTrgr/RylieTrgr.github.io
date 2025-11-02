@@ -1,0 +1,122 @@
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+const resultsContainer = document.getElementById("results");
+
+let currentPage = 1;
+let booksPerPage = 24;
+let booksData = [];
+
+
+// Thing that fetches books
+async function fetchBooks(query) {
+    const apiUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`;
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) throw new Error("ERROR: Failed to retrieve Book Information");
+      const data = await response.json();
+      booksData = data.docs;
+      currentPage = 1;
+      displayBooks();
+      displayPagination();
+    } catch (error) {
+      resultsContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+  }
+  
+  // Thing that displays books
+  function displayBooks() {
+    resultsContainer.innerHTML = "";
+    const start = (currentPage - 1) * booksPerPage;
+    const end = start + booksPerPage;
+    const booksToShow = booksData.slice(start, end);
+  
+    if (booksToShow.length === 0) {
+      resultsContainer.innerHTML = "<p>No books found.</p>";
+      return;
+    }
+  
+    booksToShow.forEach((book) => {
+      const bookCover = book.cover_i
+        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+        : "https://via.placeholder.com/150x200?text=No+Image";
+      const bookElement = document.createElement("div");
+      bookElement.className = "book-card";
+      bookElement.innerHTML = `
+        <img src="${bookCover}" alt="Book Cover">
+        <h3>${book.title}</h3>
+        <p>${book.author_name ? book.author_name.join(", ") : "Unknown Author"}</p>
+      `;
+      resultsContainer.appendChild(bookElement);
+    });
+  }
+
+// Thing to display pagination controls
+function displayPagination() {
+    const totalPages = Math.ceil(booksData.length / booksPerPage);
+    const paginationContainer = document.getElementById("pagination");
+    paginationContainer.innerHTML = "";
+  
+
+    const prevButton = document.createElement("button");
+    prevButton.textContent = "Previous";
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        displayBooks();
+        displayPagination();
+      }
+    });
+    paginationContainer.appendChild(prevButton);
+  
+  
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.disabled = i === currentPage;
+      pageButton.addEventListener("click", () => {
+        currentPage = i;
+        displayBooks();
+        displayPagination();
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+  
+
+    const nextButton = document.createElement("button");
+    nextButton.textContent = "Next";
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayBooks();
+        displayPagination();
+      }
+    });
+    paginationContainer.appendChild(nextButton);
+  }
+
+// Thing for search button
+searchButton.addEventListener("click", () => {
+  const query = searchInput.value.trim();
+  if (!query) {
+    resultsContainer.innerHTML = "<p>Please enter a search term.</p>";
+    return;
+  }
+  fetchBooks(query);
+});
+
+function searchHistory(){
+  var recentSearch = []
+  recentSearch.push($('#search').val());
+
+  $.each(recentSearch, function(index,value){
+    const p = document.createElement("p");
+    p.innerHTML = value;
+    document.getElementById("historyLine").appendChild(p);
+
+  })
+}
+
+
+
