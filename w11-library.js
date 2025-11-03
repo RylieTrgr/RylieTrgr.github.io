@@ -1,6 +1,26 @@
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const resultsContainer = document.getElementById("results");
+const text = document.querySelector('.text');
+const storedInput = localStorage.getItem('textinput')
+const sendExp = document.getElementById("export-button");
+
+if (storedInput) {
+  text.textContent = storedInput
+}
+
+searchInput.addEventListener('input', letter => {
+  //console.log(letter.target.value)
+    text.textContent = letter.target.value 
+    
+})
+
+const saveToLocalStorage = () => {
+  localStorage.setItem('textinput', text.textContent)
+}
+
+searchButton.addEventListener('click', saveToLocalStorage)
+
 
 let currentPage = 1;
 let booksPerPage = 24;
@@ -49,6 +69,7 @@ async function fetchBooks(query) {
       resultsContainer.appendChild(bookElement);
     });
   }
+  
 
 // Thing to display pagination controls
 function displayPagination() {
@@ -106,17 +127,18 @@ searchButton.addEventListener("click", () => {
   fetchBooks(query);
 });
 
-function searchHistory(){
-  var recentSearch = []
-  recentSearch.push($('#search').val());
 
-  $.each(recentSearch, function(index,value){
-    const p = document.createElement("p");
-    p.innerHTML = value;
-    document.getElementById("historyLine").appendChild(p);
 
-  })
+
+
+// Save favorites locally, give option to export
+function exportData() {
+  const favorites = localStorage.removeItem('textinput');
+ 
+  
 }
+
+sendExp.addEventListener('click', exportData)
 
 
 
