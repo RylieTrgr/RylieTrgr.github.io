@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function getbooks() {
+            document.getElementById('output').innerHTML="";
+
+            fetch("https://openlibrary.org/search.json?q="+document.getElementById("input").value) // future rylie do not put a semicolon at the end of this line--it will break everything
+            .then(a => a.json()) //no semi here either
+            .then(response =>{
+                for(var i=0; i<10; i++) {document.getElementById("output").innerHTML+="<h2>"+response.docs[i].title+"</h2>"+response.docs[i].author_name[0]+"<br><img src='https://covers.openlibrary.org/b/isbn/"+response.docs[i].isbn[0]+"-M.jpg'><br>";
+                    
+                }
+            });
+        }
+
+
+    </script>
+
+    <input id="input">
+    <button onclick="getbooks()"> Search </button> 
+    <br>
+    <div id="output"></div>
+
+
+
+</body>
+</html>
