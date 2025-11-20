@@ -1,3 +1,22 @@
+let refreshBtn = document.querySelector("#Refresh").addEventListener('click', newRefresh);
+
+
+
+let imageTable = ['SC-Type00.png','SC-Type01.png','SC-Type02.png','SC-Type03.png','SC-Type04.png'];
+let i = Math.floor(Math.random() * imageTable.length);
+let r = imageTable[i];
+console.log(r);
+
+var myReco = ['0','0','0','0','0'];
+
+
+
+
+function newRefresh(){
+
+}
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -18,3 +37,4 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
+
